@@ -1,6 +1,6 @@
 export const theme = {
   colors: {
-    primary: "00C26F",
+    primary: "#00C26F",
     primaryDark: "#00AC62",
     dark: "#3E3E3E",
     darkLight: "#E1E1E1",
@@ -15,10 +15,10 @@ export const theme = {
     roseLight: "#F87171",
   },
   fonts: {
-    medium: "500",
-    semibold: "600",
-    bold: "700",
-    extraBold: "800",
+    medium: "500" as "500",
+    semibold: "600" as "600",
+    bold: "700" as "700",
+    extraBold: "800" as "800",
   },
   radius: {
     xs: 10,
@@ -26,6 +26,6 @@ export const theme = {
     md: 14,
     lg: 16,
     xl: 18,
-    xxl: 20,
+    xxl: 22,
   },
 };

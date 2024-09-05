@@ -1,0 +1,100 @@
+import React from "react";
+import { StatusBar } from "expo-status-bar";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+
+import ScreenWrapper from "@/components/screenWrapper";
+import { hp, wp } from "@/utils/common";
+import { theme } from "@/constants/theme";
+import Button from "@/components/Button";
+
+const Welcome = () => {
+  return (
+    <ScreenWrapper bg="white">
+      <StatusBar style="dark" />
+      <View style={styles.container}>
+        {/* welcome iimage */}
+        <Image
+          source={require("@/assets/images/welcome.png")}
+          style={styles.welcomeImage}
+          resizeMode="contain"
+        />
+
+        {/* tiitle */}
+        <View style={{ gap: 20 }}>
+          <Text style={styles.title}>Heeh!</Text>
+          <Text style={styles.punchline}>
+            Share your thoughts with the world and connect with like-minded
+          </Text>
+        </View>
+
+        {/* footer */}
+        <View style={styles.footer}>
+          <Button
+            title="Getting started"
+            buttonStyle={{ marginHorizontal: wp(3) }}
+            onPress={() => {}}
+          />
+          <View style={styles.buttomTextContainer}>
+            <Text style={styles.loginText}>Already have an account?</Text>
+            <Pressable onPress={() => alert("hello")}>
+              <Text
+                style={[
+                  styles.loginText,
+                  {
+                    color: theme.colors.primaryDark,
+                    fontWeight: theme.fonts.semibold,
+                  },
+                ]}
+              >
+                Login
+              </Text>
+            </Pressable>
+          </View>
+        </View>
+      </View>
+    </ScreenWrapper>
+  );
+};
+
+export default Welcome;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "space-around",
+    backgroundColor: "white",
+    paddingHorizontal: wp(4),
+  },
+  welcomeImage: {
+    width: wp(100),
+    height: hp(30),
+  },
+  title: {
+    color: theme.colors.text,
+    fontSize: hp(4),
+    textAlign: "center",
+    fontWeight: theme.fonts.extraBold,
+  },
+  punchline: {
+    textAlign: "center",
+    paddingHorizontal: wp(10),
+    fontSize: hp(1.7),
+    color: theme.colors.text,
+  },
+  footer: {
+    gap: 30,
+    width: "100%",
+  },
+  buttomTextContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 5,
+  },
+  loginText: {
+    textAlign: "center",
+    color: theme.colors.text,
+    fontSize: hp(1.6),
+  },
+});

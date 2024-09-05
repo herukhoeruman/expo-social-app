@@ -4,10 +4,10 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 interface screenWrapperProps {
   children: React.ReactNode;
-  bg: string;
+  bg?: string;
 }
 
-const screenWrapper = ({ children, bg }: screenWrapperProps) => {
+const ScreenWrapper = ({ children, bg }: screenWrapperProps) => {
   const { top } = useSafeAreaInsets();
   const paddingTop = top > 0 ? top + 5 : 30;
 
@@ -16,4 +16,4 @@ const screenWrapper = ({ children, bg }: screenWrapperProps) => {
   );
 };
 
-export default screenWrapper;
+export default ScreenWrapper;
