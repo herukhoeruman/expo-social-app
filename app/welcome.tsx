@@ -6,20 +6,21 @@ import ScreenWrapper from "@/components/screenWrapper";
 import { hp, wp } from "@/utils/common";
 import { theme } from "@/constants/theme";
 import Button from "@/components/Button";
+import { useRouter } from "expo-router";
 
 const Welcome = () => {
+  const router = useRouter();
+
   return (
     <ScreenWrapper bg="white">
       <StatusBar style="dark" />
       <View style={styles.container}>
-        {/* welcome iimage */}
         <Image
           source={require("@/assets/images/welcome.png")}
           style={styles.welcomeImage}
           resizeMode="contain"
         />
 
-        {/* tiitle */}
         <View style={{ gap: 20 }}>
           <Text style={styles.title}>Heeh!</Text>
           <Text style={styles.punchline}>
@@ -27,16 +28,15 @@ const Welcome = () => {
           </Text>
         </View>
 
-        {/* footer */}
         <View style={styles.footer}>
           <Button
             title="Getting started"
             buttonStyle={{ marginHorizontal: wp(3) }}
-            onPress={() => {}}
+            onPress={() => router.push("/sign-up")}
           />
           <View style={styles.buttomTextContainer}>
             <Text style={styles.loginText}>Already have an account?</Text>
-            <Pressable onPress={() => alert("hello")}>
+            <Pressable onPress={() => router.push("/login")}>
               <Text
                 style={[
                   styles.loginText,
