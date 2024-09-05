@@ -4,6 +4,8 @@ import Home from "./home";
 import { SvgProps } from "react-native-svg";
 import { theme } from "@/constants/theme";
 import ArrowLeft01Icon from "./arrow-left";
+import MailAtSign01Icon from "./mail";
+import LockPasswordIcon from "./password";
 
 interface IconProps extends SvgProps {
   name: keyof typeof icons;
@@ -14,6 +16,8 @@ interface IconProps extends SvgProps {
 const icons = {
   home: Home,
   arrowLeft: ArrowLeft01Icon,
+  mail: MailAtSign01Icon,
+  password: LockPasswordIcon,
 };
 
 const Icon = ({ name, ...props }: IconProps) => {
