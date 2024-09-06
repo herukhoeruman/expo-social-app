@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, Pressable } from "react-native";
+import { StyleSheet, View, Text, Alert, Pressable } from "react-native";
 import React from "react";
 import Home from "@/assets/icons/home";
 import ScreenWrapper from "@/components/screenWrapper";
@@ -17,15 +17,15 @@ const Login = () => {
   const emailRef = React.useRef("");
   const passwordRef = React.useRef("");
 
+  const router = useRouter();
+
   const onSubmit = () => {
     setLoading(true);
 
-    setTimeout(() => {
-      alert(
-        "Email: " + emailRef.current + "\nPassword: " + passwordRef.current
-      );
+    if (!emailRef.current || !passwordRef.current) {
       setLoading(false);
-    }, 3000);
+      return Alert.alert("Login", "Please fill all fields");
+    }
   };
 
   return (
@@ -65,7 +65,7 @@ const Login = () => {
 
           <View style={styles.footer}>
             <Text style={styles.footerText}>Don't have an account?</Text>
-            <Pressable>
+            <Pressable onPress={() => router.push("/sign-up")}>
               <Text
                 style={[
                   styles.footerText,

@@ -6,6 +6,7 @@ import { theme } from "@/constants/theme";
 import ArrowLeft01Icon from "./arrow-left";
 import MailAtSign01Icon from "./mail";
 import LockPasswordIcon from "./password";
+import UserIcon from "./user";
 
 interface IconProps extends SvgProps {
   name: keyof typeof icons;
@@ -18,6 +19,7 @@ const icons = {
   arrowLeft: ArrowLeft01Icon,
   mail: MailAtSign01Icon,
   password: LockPasswordIcon,
+  user: UserIcon,
 };
 
 const Icon = ({ name, ...props }: IconProps) => {
