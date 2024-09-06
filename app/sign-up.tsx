@@ -42,7 +42,7 @@ const SignUp = () => {
 
         <View style={styles.form}>
           <Text style={{ fontSize: hp(1.5), color: theme.colors.text }}>
-            Please fill the data to create an account
+            Please fill the detail to create an account
           </Text>
 
           <Input
