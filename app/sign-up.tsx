@@ -1,6 +1,5 @@
-import { StyleSheet, View, Text, Alert, Pressable } from "react-native";
+import { StyleSheet, View, Text, Pressable } from "react-native";
 import React from "react";
-import Home from "@/assets/icons/home";
 import ScreenWrapper from "@/components/screenWrapper";
 import Icon from "@/assets/icons";
 import { StatusBar } from "expo-status-bar";
@@ -10,10 +9,11 @@ import { hp, wp } from "@/utils/common";
 import { theme } from "@/constants/theme";
 import Input from "@/components/input";
 import Button from "@/components/Button";
+import ModalAlert from "@/components/modal-alert";
 
 const SignUp = () => {
   const [loading, setLoading] = React.useState(false);
-
+  const [alertVisible, setAlertVisible] = React.useState(false);
   const emailRef = React.useRef("");
   const passwordRef = React.useRef("");
   const nameRef = React.useRef("");
@@ -21,12 +21,13 @@ const SignUp = () => {
   const router = useRouter();
 
   const onSubmit = () => {
-    setLoading(true);
-
     if (!emailRef.current || !passwordRef.current || !nameRef.current) {
       setLoading(false);
-      return Alert.alert("SignUp", "Please fill all fields");
+      setAlertVisible(true);
+      return;
     }
+
+    // Lanjutkan proses sign-up
   };
 
   return (
@@ -86,6 +87,12 @@ const SignUp = () => {
           </View>
         </View>
       </View>
+      <ModalAlert
+        visible={alertVisible}
+        title="SignUp"
+        message="Please fill all fields"
+        onClose={() => setAlertVisible(false)}
+      />
     </ScreenWrapper>
   );
 };
